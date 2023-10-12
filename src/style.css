@@ -16,3 +16,9 @@ ul {
 li {
   list-style: none;
 }
+.weather-details {
+  display: flex;
+}
+.temp {
+  font-size: 60px;
+}

@@ -21,4 +21,11 @@ li {
 }
 .temp {
   font-size: 60px;
+  line-height: 1;
+}
+.temp-info {
+  position: relative;
+}
+.units {
+  top: 30px;
 }

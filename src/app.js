@@ -32,5 +32,10 @@ function handleSubmit(event) {
   cityElement.innerHTML = cityIputElement.value;
 }
 
+function search() {
+  let apiKey = "7b2103381278d28203d89c397e41d56e";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q={New York}&appid={API key}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);

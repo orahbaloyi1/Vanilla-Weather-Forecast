@@ -1,5 +1,5 @@
-function formDate(timestamp) {
-  let date = new Date(timestamp);
+function formDate() {
+  let date = new Date();
 
   let hours = date.getHours();
   let minutes = date.getMinutes();
@@ -14,8 +14,14 @@ function formDate(timestamp) {
   ];
 
   let day = days[date.getDay()];
-  console.log(day);
+
+  let currentDate = document.querySelector("#current-date");
+  currentDate.innerHTML = `${day} ${hours}:${minutes}`;
+  let today = `${day} ${hours}:${minutes}`;
+  console.log(today);
+  return `${day} ${hours}:${minutes}`;
 }
+formDate();
 
 function handleSubmit(event) {
   event.preventDefault();

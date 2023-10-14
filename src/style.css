@@ -38,14 +38,10 @@ li {
   line-height: 1;
   font-weight: 400;
 }
-.temp-info {
+.temp-info .units {
   position: relative;
+  top: -34px;
 }
-.units {
-  position: absolute;
-  top: -32px;
-}
-
 .description li {
   color: #70757a;
   font-size: 14px;

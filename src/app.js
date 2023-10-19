@@ -31,20 +31,21 @@ function handleSubmit(event) {
   let cityElement = document.querySelector("#city");
 
   cityElement.innerHTML = cityIputElement.value;
+  search(cityIputElement.value);
 }
 function displayTemp(response) {
-  let currentTemperature = response.data.main.temp;
+  let currentTemperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = currentTemperature;
 }
 
-function search() {
+function search(city) {
   let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
-  let city = "New York";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayTemp);
 }
-search();
+
+search("Mahikeng");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);

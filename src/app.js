@@ -35,11 +35,8 @@ function handleSubmit(event) {
 function displayTemp(response) {
   let currentTemperature = response.data.main.temp;
   let temperatureElement = document.querySelector("#temperature");
-  console.log("rest");
-  console.log(response.data.main);
   temperatureElement.innerHTML = currentTemperature;
 }
-displayTemp();
 
 function search() {
   let apiKey = "6bfa54f242cbb59343d4e58db578dc61";
@@ -47,6 +44,7 @@ function search() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemp);
 }
+search();
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);

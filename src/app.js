@@ -31,12 +31,26 @@ function handleSubmit(event) {
   let cityElement = document.querySelector("#city");
 
   cityElement.innerHTML = cityIputElement.value;
+
   search(cityIputElement.value);
 }
 function displayTemp(response) {
   let currentTemperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let speedElement = document.querySelector("#wind");
+  let pressureElement = document.querySelector("#pressure");
+  let iconElement = document.querySelector("#icon");
+
+  console.log(response.data);
+
   temperatureElement.innerHTML = currentTemperature;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = response.data.main.humidity;
+  speedElement.innerHTML = response.data.wind.speed;
+  pressureElement.innerHTML = response.data.main.pressure;
+  iconElement.innerHTML = response.data.weather[0].icon;
 }
 
 function search(city) {

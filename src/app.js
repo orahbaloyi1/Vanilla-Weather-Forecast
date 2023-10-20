@@ -43,14 +43,17 @@ function displayTemp(response) {
   let pressureElement = document.querySelector("#pressure");
   let iconElement = document.querySelector("#icon");
 
-  console.log(response.data);
+  console.log(response);
 
   temperatureElement.innerHTML = currentTemperature;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   speedElement.innerHTML = response.data.wind.speed;
   pressureElement.innerHTML = response.data.main.pressure;
-  iconElement.innerHTML = response.data.weather[0].icon;
+  iconElement.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function search(city) {

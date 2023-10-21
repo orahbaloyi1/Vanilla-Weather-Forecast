@@ -35,7 +35,6 @@ function handleSubmit(event) {
   search(cityIputElement.value);
 }
 function displayTemp(response) {
-  let currentTemperature = Math.round(response.data.main.temp);
   let temperatureElement = document.querySelector("#temperature");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
@@ -45,7 +44,9 @@ function displayTemp(response) {
 
   console.log(response);
 
-  temperatureElement.innerHTML = currentTemperature;
+  let celciusTemperature = Math.round(response.data.main.temp);
+
+  temperatureElement.innerHTML = celciusTemperature;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   speedElement.innerHTML = response.data.wind.speed;
@@ -62,7 +63,27 @@ function search(city) {
   axios.get(apiUrl).then(displayTemp);
 }
 
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  let celcius = document.querySelector("#temperature");
+  celcius.innerHTML = celciusTemperature;
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let fahrenheit = document.querySelector("#temperature");
+  fahrenheit.innerHTML = celciusTemperature * 2;
+}
+
+let celciusTemperature = null;
+
 search("Mahikeng");
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayCelciusTemperature);

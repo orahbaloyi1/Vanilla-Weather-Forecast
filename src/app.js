@@ -75,9 +75,32 @@ function displayFahrenheitTemperature(event) {
   fahrenheit.innerHTML = celciusTemperature * 2;
 }
 
-let celciusTemperature = null;
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
 
-search("Mahikeng");
+  let forecastHtml = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue"];
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `<div class="col-2">
+                <div class="weather-forecast-date">${day}</div>
+                <div>
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  />
+                </div>
+                <div class="weather-forecast-temperature">
+                  <span class="weather-forecast-temperature-max">18 </span>
+                  <span class="weather-forecast-temperature-min">12</span>
+                </div>
+            </div>`;
+  });
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
+
+let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
@@ -87,3 +110,6 @@ celciusLink.addEventListener("click", displayCelciusTemperature);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", displayCelciusTemperature);
+
+search("Mahikeng");
+displayForecast();

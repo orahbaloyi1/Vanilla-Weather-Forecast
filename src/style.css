@@ -32,13 +32,13 @@ li:first-letter {
   display: flex;
 }
 .weather-details img {
-  width: 64px;
-  height: 64px;
+  width: 80px;
+  height: 80px;
   margin-right: 5px;
 }
 .temp {
-  font-size: 54px;
-  line-height: 1;
+  font-size: 48px;
+  line-height: 80px;
   font-weight: 400;
 }
 .temp-info .units {

@@ -1,12 +1,17 @@
 body {
   font-family: Roboto;
 }
+.overview {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  line-height: 30px;
+}
 h1 {
-  color: #202124;
+  color: White;
   font-size: 28px;
   line-height: 26px;
-  margin-top: 20px;
-  margin-bottom: 0px;
+  font-weight: 400;
+  margin-bottom: 4px;
 }
 ul {
   padding: 0;
@@ -14,19 +19,29 @@ ul {
 
 li {
   list-style: none;
-  color: #70757a;
+  color: white;
   font-size: 16px;
-  line-height: 20px;
+  line-height: 22px;
 }
 li:first-letter {
   text-transform: capitalize;
 }
-.weather-app {
-  border: 1px solid #70757a;
-  margin: 20px auto;
-  border-radius: 5px;
-  padding: 20px;
+.app-wrapper {
   width: 600px;
+  margin: 30px auto;
+}
+.weather-forecast-app {
+  border-radius: 5px;
+  padding: 40px;
+  background: linear-gradient(
+    112.5deg,
+    rgb(95, 10, 135) 11.4%,
+    rgb(164, 80, 139) 60.2%
+  );
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.input-button {
+  outline: none;
 }
 .weather-details {
   display: flex;
@@ -37,33 +52,59 @@ li:first-letter {
   margin-right: 5px;
 }
 .temp {
+  color: white;
   font-size: 48px;
   line-height: 80px;
   font-weight: 400;
 }
 .temp-info .units {
+  font-size: 20px;
   position: relative;
-  top: -34px;
+  top: -20px;
+  color: white;
 }
 .more-info li {
-  color: #70757a;
-  font-size: 14px;
+  color: white;
+  font-size: 12px;
   line-height: 20px;
+}
+.more-info {
+  text-align: left;
 }
 .weather-forecast {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 32px;
+  color: white;
 }
 .weather-forecast-date {
   font-size: 16px;
   opacity: 0.6;
 }
 .weather-forecast img {
-  width: 40px;
+  width: 54px;
 }
 .weather-forecast-temperature {
   font-size: 14px;
 }
 .weather-forecast-temperature-min {
   opacity: 0.6;
+}
+.source-link {
+  text-decoration: none;
+}
+.source {
+  margin-top: 20px;
+}
+.input-button {
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.button {
+  border-radius: 6px;
+  background-color: rgb(95, 10, 135);
+  border: 1px solid rgb(95, 10, 135);
+  color: white;
+  padding: 6px;
+  width: 80px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
 }

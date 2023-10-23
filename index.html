@@ -20,14 +20,14 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
-    <div>
-      <div class="container">
-        <div class="weather-app">
+    <div class="container">
+      <div class="app-wrapper">
+        <div class="weather-forecast-app">
           <form id="search-form">
             <div class="row">
               <div class="col-9">
                 <input
-                  class="form-control"
+                  class="form-control input-button"
                   id="input-city"
                   type="search"
                   placeholder="Type city..."
@@ -35,7 +35,7 @@
               </div>
               <div class="col-3">
                 <input
-                  class="btn btn-primary"
+                  class="button"
                   id="search-button"
                   type="submit"
                   value="Search"
@@ -43,15 +43,15 @@
               </div>
             </div>
           </form>
-          <div>
+          <div class="overview">
             <h1 id="city"></h1>
             <ul>
-              <li id="current-date">Wednesday 21:00</li>
-              <li id="description">Cloudy</li>
+              <li id="current-date"></li>
+              <li id="description"></li>
             </ul>
           </div>
           <div class="row">
-            <div class="col-6">
+            <div class="col-9">
               <div class="weather-details">
                 <div>
                   <img
@@ -63,32 +63,30 @@
                 <div class="temp-info">
                   <span class="temp" id="temperature"></span>
                   <span class="units">
-                    <a href="" id="celcius-link">℃</a>|<a
-                      href=""
-                      id="fahrenheit-link"
-                      >℉</a
-                    >
+                    <span href="" id="celcius-link">°C</span>
                   </span>
                 </div>
               </div>
             </div>
-            <div class="col-6">
+            <div class="col-3">
               <div>
                 <ul class="more-info">
-                  <li>Humidity: <span id="humidity"></span></li>
-                  <li>Wind:<span id="wind"></span></li>
-                  <li>Pressure:<span id="pressure"></span></li>
+                  <li>Humidity: <span id="humidity"> </span><span> %</span></li>
+                  <li>Wind:<span id="wind"> </span><span> km/h</span></li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="weather-forecast" id="forecast"></div>
         </div>
-        <a
-          href="https://github.com/orahbaloyi1/Vanilla-Weather-App.git"
-          target="_blank"
-          >Open source </a
-        >by Elizabeth
+        <span class="source">
+          <a
+            class="source-link"
+            href="https://github.com/orahbaloyi1/Vanilla-Weather-App.git"
+            target="_blank"
+            >Open source </a
+          >by Elizabeth Baloyi
+        </span>
       </div>
     </div>
     <script src="src/app.js"></script>

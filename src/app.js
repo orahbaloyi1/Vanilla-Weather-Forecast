@@ -1,8 +1,15 @@
 function formDate() {
   let date = new Date();
-
   let hours = date.getHours();
+
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
   let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
   let days = [
     "Sunday",
     "Monday",
@@ -28,18 +35,15 @@ function handleSubmit(event) {
   event.preventDefault();
 
   let cityIputElement = document.querySelector("#input-city");
-  let cityElement = document.querySelector("#city");
-
-  cityElement.innerHTML = cityIputElement.value;
 
   search(cityIputElement.value);
 }
 function displayTemp(response) {
   let temperatureElement = document.querySelector("#temperature");
+  let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let speedElement = document.querySelector("#wind");
-  let pressureElement = document.querySelector("#pressure");
   let iconElement = document.querySelector("#icon");
 
   console.log(response);
@@ -47,10 +51,10 @@ function displayTemp(response) {
   let celciusTemperature = Math.round(response.data.main.temp);
 
   temperatureElement.innerHTML = celciusTemperature;
+  cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   speedElement.innerHTML = response.data.wind.speed;
-  pressureElement.innerHTML = response.data.main.pressure;
   iconElement.setAttribute(
     "src",
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -69,12 +73,6 @@ function displayCelciusTemperature(event) {
   event.preventDefault();
   let celcius = document.querySelector("#temperature");
   celcius.innerHTML = celciusTemperature;
-}
-
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheit = document.querySelector("#temperature");
-  fahrenheit.innerHTML = celciusTemperature * 2;
 }
 
 function formatDay(timestamps) {
@@ -134,15 +132,10 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
-let celciusTemperature = null;
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", displayCelciusTemperature);
 
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayCelciusTemperature);
-
-search("Mahikeng");
+search("Johannesburg");
